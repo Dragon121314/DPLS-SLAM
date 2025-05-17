@@ -1,0 +1,24 @@
+<launch>
+    <!-- <arg name="config_path" default = "$(find orbslam3)/../RGB-D/RealSense_D435i.yaml" /> -->
+    <arg name="config_path" default = "$(find orbslam3)/../RGB-D/TUM3.yaml" />
+    <arg name="voc_path" default = "$(find orbslam3)/../../Vocabulary/ORBvoc.txt" />
+
+    <!-- YOLO分割节点 -->
+    <node pkg="orbslam3" type="Instance.py" name="Instance" output="screen">
+        <!-- <param name="model_path" value="/home/robot/ORB_SLAM3_Line/yolov8/model/yolov8n-seg.pt" /> -->
+        <param name="model_path" value="/home/robot/ORB_SLAM3_Line/yolov8/model/best.pt" />
+        <!-- <remap from="/camera/rgb" to="/usb_cam/image_raw" />  根据实际摄像头话题调整 -->
+    </node>
+    <node name="RGBD" pkg="orbslam3" type="RGBD" output="screen">
+        <param name="config_file" type="string" value="$(arg config_path)" />
+        <param name="voc_file" type="string" value="$(arg voc_path)" />
+    </node>
+
+      <!-- 播放 bag 文件 -->
+    <!-- <node name="play_bag" pkg="rosbag" type="play" output="screen" args="/home/robot/Datasets/HighDynamic.bag" /> -->
+
+
+</launch>
+
+
+<!-- type 属性指定了要启动的节点的可执行文件名 arg: launch文件内部参数 param: ROS参数服务器上的参数-->

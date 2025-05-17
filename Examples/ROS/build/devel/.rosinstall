@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robot/ORB_SLAM3_Line/Examples/ROS/build/devel/setup.sh

@@ -1,0 +1,14 @@
+<launch>
+    <arg name="config_path" default = "/home/robot/ORB_SLAM/ORB_SLAM3_detailed_comments-master/Examples/Stereo-Inertial/EuRoC.yaml" />
+    <arg name="voc_path" default = "/home/robot/ORB_SLAM/ORB_SLAM3_detailed_comments-master/Vocabulary/ORBvoc.txt" />
+    <arg name="bEqual" default="false" />
+    <arg name="bRect" default="false" />
+<!-- type 属性指定了要启动的节点的可执行文件名 arg: launch文件内部参数 param: ROS参数服务器上的参数-->
+    <node name="stereo_inertial" pkg="orbslam3" type="stereo_inertial" output="screen">
+        <param name="config_file" type="string" value="$(arg config_path)" />
+        <param name="voc_file" type="string" value="$(arg voc_path)" />
+        <param name="Equal" type="bool" value="$(arg bEqual)" />
+        <param name="Rect" type="bool" value="$(arg bRect)" />
+    </node>
+<!-- rosbag play MH_03_medium.bag /cam0/image_raw:=/camera/left/image_raw /cam1/image_raw:=/camera/right/image_raw /imu0:=/imu -->
+</launch>

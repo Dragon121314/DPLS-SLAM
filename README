@@ -1,1 +1,55 @@
-动态环境下基于点线特征融合和轻量化改进YOLOv8Seg的视觉SLAM系统
+DPLS-SLAM: a Visual SLAM System Based on Point Line Feature Fusion and Lightweight Improvement of YOLOv8Seg in Dynamic Environment
+
+# 1. Main contributions
+1、The gradient threshold and anchor threshold of EDLinse are improved, and the shortest line length of the extracted line features is suppressed, the overly dense line features are eliminated, and the highly consistent line features are fused
+
+2、One of the main tasks is to construct a spatial consistency model for line features, and sequentially correct the depth values of line features to conform to spatial texture
+![alt text](images/Figure6(a).png) ![alt text](images/Figure6(b).png)
+
+3、The EfficientNetV2 network is combined with the lightweight CA attention mechanism to improve the YOLOv8Seg instance segmentation network
+
+4、The 3-standard deviation model of the Gaussian model was used to judge the dynamic point-line features
+
+5、The optical flow is used to trace the line feature, and the distance and direction information from the projected line segment to the matching line segment are synthesized when the reprojection error of the line feature is constructed
+
+
+Part of the code is open sourced, and more code will gradually be open sourced after the paper is published
+
+# 2. Prerequisites
+We have tested the library in **Ubuntu 20.04**, but it should be easy to compile in other platforms. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
+
+## C++14 Compiler
+We use the new thread and chrono functionalities of C++11.
+
+## Pangolin
+We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
+
+## OpenCV
+We use [OpenCV](http://opencv.org) to manipulate images and features. Dowload and install instructions can be found at: http://opencv.org. **Tested with OpenCV 4.2.0**.
+
+## Eigen3
+Required by g2o (see below). Download and install instructions can be found at: http://eigen.tuxfamily.org. **Required at least 3.1.0**.
+
+## DBoW2 and g2o (Included in Thirdparty folder)
+We use modified versions of the [DBoW2](https://github.com/dorian3d/DBoW2) library to perform place recognition and [g2o](https://github.com/RainerKuemmerle/g2o) library to perform non-linear optimizations. Both modified libraries (which are BSD) are included in the *Thirdparty* folder.
+
+## Python
+Required to calculate the alignment of the trajectory with the ground truth. **Required Numpy module**.
+
+* (win) http://www.python.org/downloads/windows
+* (mac) preinstalled with osx
+
+## ROS (optional)
+
+We provide a example to process input of a RGB-D camera using ROS. Building these examples is optional. These have been tested with ROS noetic under Ubuntu 20.04.
+
+# 3. Building DPLS-SLAM library and examples
+
+We provide a script `build.sh` to build the *Thirdparty* libraries and *DPLS-SLAM*. Please make sure you have installed all required dependencies (see section 2). Execute:
+```
+cd DPLS_SLAM3
+chmod +x build.sh
+./build.sh
+```
+
+This will create **libORB_SLAM3.so**  at *lib* folder and the executables in *build* folder.

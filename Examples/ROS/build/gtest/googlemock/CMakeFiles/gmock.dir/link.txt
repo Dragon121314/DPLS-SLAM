@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++14 -Wall -O3 -g -pthread -O3 -DNDEBUG  -shared -Wl,-soname,libgmock.so -o ../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o  -Wl,-rpath,/home/robot/ORB_SLAM3_Line/Examples/ROS/build/gtest/lib ../lib/libgtest.so 

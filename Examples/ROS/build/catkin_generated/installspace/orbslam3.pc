@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: orbslam3
+Description: Description of orbslam3
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: cv_bridge geometry_msgs image_transport nav_msgs rosbag roscpp rospy sensor_msgs std_msgs tf

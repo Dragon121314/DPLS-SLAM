@@ -1,0 +1,69 @@
+ Time Statistics in ms (mean---root_mean_square)
+OpenCV version: 4.2.0
+---------------------------
+Tracking Time Statistics...
+
+ORB Extraction: -nan----nan
+Pose Prediction: -nan----nan
+LM Track: -nan----nan
+New KF decision: -nan----nan
+Total Tracking: -nan----nan
+
+Local Mapping Time Statistics...
+
+KF Insertion: -nan----nan
+MP Culling: -nan----nan
+MP Creation: -nan----nan
+LBA: -nan----nan
+KF Culling: -nan----nan
+Total Local Mapping: -nan----nan
+---------------------------
+
+LBA complexity Time Statistics...
+LBA Edges: -nan----nan
+LBA KF optimized: -nan----nan
+LBA KF fixed: -nan----nan
+LBA MP: -nan----nan
+
+LBA executions: 0
+LBA aborts: 0
+---------------------------
+
+Map complexity Time Statistics...
+KFs in map: 0
+MPs in map: 0
+---------------------------
+
+Place Recognition Time Statistics...
+Database Query: -nan----nan
+SE3 estimation: -nan----nan
+Total Place Recognition: -nan----nan
+
+
+Loop Closing Time Statistics...
+Loop Fusion: -nan----nan
+Essential Graph: -nan----nan
+Total Loop Closing: -nan----nan
+
+Numb exec: 0
+Number of KFs: -nan----nan
+
+Map Merging Time Statistics...
+Merge Maps: -nan----nan
+Welding BA: -nan----nan
+Optimization Ess.: -nan----nan
+Total Map Merging: -nan----nan
+
+Numb exec: 0
+Number of KFs: -nan----nan
+Number of MPs: -nan----nan
+
+Full GBA Time Statistics...
+GBA: -nan----nan
+Map Update: -nan----nan
+Total Full GBA: -nan----nan
+
+Numb exec: 0
+Numb abort: 0
+Number of KFs: -nan----nan
+Number of MPs: -nan----nan
